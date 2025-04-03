@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+       
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .video-container {
+            width: 80vw;
+            height: auto;
+            max-height: 80vh;
+        }
+
+        .marquee {
+            position: absolute;
+            width: 100%;
+            font-size: 3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: rainbow 1s infinite alternate;
+        }
+
+      
+        .top-marquee {
+            top: 0;
+        }
+
+        .bottom-marquee {
+            bottom: 0;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
+       
+        @keyframes rainbow {
+            0% { color: red; }
+            14% { color: orange; }
+            28% { color: yellow; }
+            42% { color: green; }
+            57% { color: blue; }
+            71% { color: indigo; }
+            85% { color: violet; }
+            100% { color: red; }
+        }
+
+        @media (max-width: 600px) {
+            .video-container {
+                width: 90vw;
+            }
+            .marquee {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Marquee -->
+    <div class="marquee top-marquee">
+        <span>GNORTS MR ALIEN</span>
+    </div>
+
+    <!-- Video -->
+    <video id="bg-video" class="video-container" autoplay loop muted>
+        <source src="https://i.imgur.com/Y0Ijl3L.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Bottom Marquee -->
+    <div class="marquee bottom-marquee">
+        <span>Feliz cumple Fede!!!!!!!!!!</span>
+    </div>
+
+    <script>
+        
+        window.addEventListener('click', function() {
+            const video = document.getElementById('bg-video');
+            if (video.muted) {
+                video.muted = false;
+                video.play();
+            }
+        });
+    </script>
+
+</body>
+</html>
